@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gift Exchange Cards</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    /* Snowflake styles */
+    .snowflake {
+      position: absolute;
+      top: -10px;
+      z-index: 1000;
+      color: #fff;
+      font-size: 1.5rem;
+      user-select: none;
+      pointer-events: none;
+      animation: snowfall linear infinite;
+    }
+
+    /* Snowfall animation */
+    @keyframes snowfall {
+      to {
+        transform: translateY(100vh);
+      }
+    }
+
+    /* Styling for the gifts (you can animate these too) */
+    .gift {
+      width: 50px;
+      height: 50px;
+      background-color: red;
+      position: relative;
+      margin: 20px;
+      border-radius: 10%;
+      animation: giftAnimation 2s infinite;
+    }
+
+    @keyframes giftAnimation {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(15deg); }
+      50% { transform: rotate(0deg); }
+      75% { transform: rotate(-15deg); }
+      100% { transform: rotate(0deg); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Snowflakes will be appended here by JavaScript -->
+  <ul class="cards" id="card-container">
+    <!-- Your card elements go here -->
+  </ul>
+
+
+  <script>
+    
+    const snowflakeCount = 100; 
+    function createSnowflakes() {
+      for (let i = 0; i < snowflakeCount; i++) {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        snowflake.innerHTML = '❄';
+
+        snowflake.style.left = `${Math.random() * 100}vw`; 
+        snowflake.style.animationDuration = `${Math.random() * 5 + 3}s`; 
+        snowflake.style.animationDelay = `${Math.random() * 5}s`;
+
+        document.body.appendChild(snowflake);
+      }
+    }
+
+    createSnowflakes();
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> <!-- JS PDF Library -->
+  <script src="script.js"></script>
+</body>
+</html>
