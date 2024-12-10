@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { "name": "jinglebell", "giftRecipient": "Sanjukta", imageurl:"images/jinglebell.jpg"},
         { "name": "snowglobe", "giftRecipient": "Ganeshan", imageurl:"images/snowglobe.jpg"},
         { "name": "festive season", "giftRecipient": "Varuni", imageurl:"images/image18.png"},
-        { "name": "jesus", "giftRecipient": "Harika", imageurl:"images/jesus.jpg"},
+        { "name": "jesus", "giftRecipient": "Usha", imageurl:"images/jesus.jpg"},
         { "name": "angel", "giftRecipient": "Supradeep", imageurl:"images/angel.jpg"},
         { "name": "clara", "giftRecipient": "Abdullah", imageurl:"images/merry.png"},
         { "name": "snowmen", "giftRecipient": "Renjusha", imageurl:"images/snowmen.jpg"},
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { "name": "joy", "giftRecipient": "Sithun", imageurl:"images/joy.jpg"},
         { "name": "reindeer", "giftRecipient": "Akhila", imageurl:"images/reindeer.webp"},
         { "name": "blessings", "giftRecipient": "Pooja", imageurl:"images/bless.jpg"},
-        { "name": "christmasstar", "giftRecipient": "Usha", imageurl:"images/star.jpg"}
+        { "name": "christmasstar", "giftRecipient": "Harika", imageurl:"images/star.jpg"}
     ];
 
     const cardContainer = document.getElementById("card-container");
@@ -86,8 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const pageWidth = doc.internal.pageSize.width;
             let yPosition = 20;
-            const marginLeft = 20;
-
+            
            
             const imgUrl = participant.imageurl; 
             const imgWidth = 180; 
@@ -100,44 +99,69 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Title and messages
             doc.setFont("helvetica", "normal");
-            doc.setFontSize(16);
+            doc.setFontSize(13);
             doc.setTextColor(255, 0, 0); 
-            doc.text(`Hello ${name}`, pageWidth / 2, yPosition, { align: 'center' });
+            doc.text(`Hello ${name}`, pageWidth / 2, yPosition, );
             yPosition += 20;
 
             let message1 = `'Tis the season to be jolly, and our Christmas 
             party is the perfect place to celebrate!`;
-            doc.setTextColor(0, 128, 0); 
-            doc.text(message1, pageWidth / 2, yPosition, { align: 'center' });
+            doc.setTextColor(0,0, 0); 
+            doc.text(message1, pageWidth / 2, yPosition, {align :"center"});
             yPosition += 20;
 
             let message2 = `Get ready to jingle and mingle with your
-             colleagues at our festive office Christmas celebration.`;
-            doc.setTextColor(0, 0, 255); 
-            doc.text(message2, pageWidth / 2, yPosition, { align: 'center' });
+             colleagues at our festive Christmas celebration.`;
+            doc.setTextColor(0, 0, 0); 
+            doc.text(message2, pageWidth / 2, yPosition, {align :"center"});
             yPosition += 20;
+
+            doc.setFont("helvetica", "normal");
+            let message3 = `The spirit of Christmas is all about sharing and creating joyful moments.
+            I hope you’ll join our Secret Santa activity, and I’m certain it will bring you asprinkle 
+            of holiday excitement and warmth.`;
+            doc.setTextColor(0,0,0);
+            doc.text(message3,pageWidth / 2, yPosition,{align :"center"} );
+            yPosition += 23;
+
+            doc.setFont("helvetica", "normal");
+            let message4 = `Don't miss out on the fun!`;
+            doc.setTextColor(0,0,0);
+            doc.text(message4,pageWidth / 2, yPosition,{align :"center"} );
+            yPosition += 15;
+
+
+
 
             let message5 = `Deck the halls, and remember to grab a 
             gift for ${participant.giftRecipient}!`;
+          
+            doc.setFont("helvetica","italic");
+            doc.setTextColor(117,0,192);
             doc.text(message5, pageWidth / 2, yPosition, { align: 'center' });
-            yPosition += 20;
+            yPosition += 23;
 
-            yPosition += 10;
+            // yPosition += 10;
             doc.setFont("helvetica", "bold");
             doc.setTextColor(255, 165, 0); 
             doc.text(`Wrapped it once, and then once more,`, pageWidth / 2, yPosition, { align: 'center' });
-            yPosition += 12;
+            yPosition += 10;
             doc.text(`Tape stuck to me, not the floor.`, pageWidth / 2, yPosition, { align: 'center' });
-            yPosition += 12;
+            yPosition += 10;
             doc.text(`By the time I’m finally through,`, pageWidth / 2, yPosition, { align: 'center' });
-            yPosition += 12;
+            yPosition += 10;
             doc.text(`The gift’s unwrapped by YOU-KNOW-WHO!`, pageWidth / 2, yPosition, { align: 'center' });
             yPosition += 20;
 
             doc.setFont("helvetica", "normal");
             doc.setTextColor(0, 0, 0); 
-            doc.text(`Thanks, Innovation & Technology | Global HR`, pageWidth / 2, yPosition, { align: 'center' });
+            doc.text(`Thanks`, pageWidth / 2, yPosition,{align :"center"} );
+            yPosition += 10;
 
+            doc.setFont("helvetica", "normal");
+            doc.setTextColor(0, 0, 0); 
+            doc.text(`Innovation & Technology | Global HR`, pageWidth / 2, yPosition, {align :"center"});
+      
             doc.save(`${name}_gift.pdf`);
 
             setTimeout(() => {
